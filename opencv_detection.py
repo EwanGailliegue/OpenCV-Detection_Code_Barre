@@ -4,7 +4,7 @@ import numpy as np
 print(cv2.__version__)  # au cazou
 
 # Chargement de l'image
-img = cv2.imread('img/image.png')
+img = cv2.imread('img/barcode.jpg')
 if img is None:
     raise FileNotFoundError("Impossible de charger l’image 'img/manga.jpg'")
 
@@ -16,7 +16,7 @@ if hasattr(bd, "detectAndDecodeWithType"):
     retval, decoded_info, decoded_type, points = bd.detectAndDecodeWithType(img)
 else:
     
-    retval, decoded_info, decoded_type, points = bd.detectAndDecode(img)
+    retval, decoded_info, points = bd.detectAndDecode(img)
 
 print("retval        :", retval)
 print("decoded_info  :", decoded_info)   # liste de chaînes
